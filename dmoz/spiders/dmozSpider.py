@@ -1,15 +1,15 @@
 #coding=utf-8
+from scrapy.contrib.loader import ItemLoader
 import scrapy
 class w3cSpider(scrapy.Spider):
 	name="dmoz"
-	allowed_domains = ["taobao.com/"]
+	allowed_domains = ["taobao.com"]
 	start_urls = [
-       "https://www.taobao.com/"
+       "https://s.taobao.com/search?q=男鞋&imgfile=&commend=all&ssid=s5-e&search_type=item&sourceId=tb.index&spm=a21bo.7724922.8452-taobao-item.2&initiative_id=tbindexz_20150824"
     ] 
-
 	def parse(self,response):
 		self.num=0
-		self.wanted_num=10
+		self.wanted_num=100
 		for sel in response.xpath("//a[@href]/@href"):
 			self.num=self.num+1
 			if(self.num>=self.wanted_num):
