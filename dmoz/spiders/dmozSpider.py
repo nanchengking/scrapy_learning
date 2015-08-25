@@ -23,5 +23,3 @@ class w3cSpider(scrapy.Spider):
 				return
 
 
-
-
