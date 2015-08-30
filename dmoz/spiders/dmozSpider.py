@@ -1,5 +1,7 @@
 #coding=utf-8
 from scrapy.contrib.loader import ItemLoader
+import logging
+from dmoz.items import FirstPageItem
 import scrapy
 class w3cSpider(scrapy.Spider):
 	name="dmoz"
@@ -9,12 +11,16 @@ class w3cSpider(scrapy.Spider):
     ] 
 	def parse(self,response):
 		self.num=0
-		self.wanted_num=100
-		for sel in response.xpath("//a[@href]/@href"):
+		self.id=0
+		self.wanted_num=10
+		logging.log(logging.INFO, "==start==")
+		for sel in  response.xpath("//script"):
+			#item=FirstPageItem()
+			#yield item
+			print sel.xpath("text()").extract()
 			self.num=self.num+1
 			if(self.num>=self.wanted_num):
 				return
-			print sel.extract()
 
 
 

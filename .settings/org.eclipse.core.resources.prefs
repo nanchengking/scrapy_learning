@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
 encoding//dmoz/items.py=utf-8
+encoding//dmoz/pipelines.py=utf-8
+encoding//dmoz/settings.py=utf-8
 encoding//dmoz/spiders/dmozSpider.py=utf-8
