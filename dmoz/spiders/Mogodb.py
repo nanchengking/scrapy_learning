@@ -1,22 +1,17 @@
 #coding=utf-8
-import pymongo
-import datetime
+import logging
 from pymongo import MongoClient
-class connectMogod:
-	def _init_(self):
-		self.client=MongoClient()
-		self.db = client.test
-		self.collection=db.test_collection
-		#post={"author":"Mike","id":001,"date":datetime.datetime.utcnow()}
-		#posts=db.posts
-		#post_id=posts.insert_one(post).inserted_id
-	def saveData(self,data):
-		self.collection.insert_on(data)
-		insert_id=posts.insert_one(post).inserted_id
-		print "===id is:",insert_id
-		
-		
-		
-
-#print post_id
+class SaveData(object):
+    ''' 用来存储数据的'''
+    def __init__(self):
+        self.client=MongoClient()
+        self.db=self.client.taobao
+        self.collection=self.db.shoes
+    def save(self,data):
+        post_id= self.collection.insert_one(data).inserted_id
+        ''' 存完，拿一次已经存好的数据的id，证明已经存好'''
+        logging.warning("===saveSuccessfull!=== id is "+post_id)
+        
 #print db.collection_names(include_system_collections=False)
+#print collection.find()
+#TODO：==king
