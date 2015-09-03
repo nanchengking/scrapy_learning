@@ -4,3 +4,4 @@ encoding//dmoz/pipelines.py=utf-8
 encoding//dmoz/settings.py=utf-8
 encoding//dmoz/spiders/Mogodb.py=utf-8
 encoding//dmoz/spiders/dmozSpider.py=utf-8
+encoding//dmoz/spiders/test.py=utf-8

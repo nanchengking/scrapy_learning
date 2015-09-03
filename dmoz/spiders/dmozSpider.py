@@ -5,7 +5,7 @@ from Mogodb import *
 from dmoz.items import FirstPageItem
 import scrapy
 import re
-class w3cSpider(scrapy.Spider):
+class demozSpider(scrapy.Spider):
 	name="dmoz"
 	allowed_domains = ["taobao.com"]
 	start_urls = [
@@ -19,11 +19,12 @@ class w3cSpider(scrapy.Spider):
 		logging.log(logging.INFO, "==start==")
 
 		info= str(response.xpath("//script/text()")[2].extract().encode('utf-8')).split('g_page_config =')[1].strip()
-		info= info[1:len(info)-2].strip()
+		info= info[7:len(info)-5].strip()
 		data={info}
 		file=open('item.txt','wb')
 		file.write(str(data))
-		self.saveData.save(data)
+		print type(data)
+		#self.saveData.save(data)
 		#print info
 
 
